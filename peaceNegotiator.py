@@ -12,6 +12,7 @@ class PeaceNegotiator :
             self.scriptType = "cratemon"
         else :
             self.scriptType = scriptType
+            print "Script type not supported, hope you know what you're doing"
         #print self.scriptType
         self.rack = rack
         self.crate = crate
@@ -32,7 +33,8 @@ class PeaceNegotiator :
     def requestAccess(self):
         self.checkFile()
         with open(self.filepath, 'r') as f:
-            if f.readline() == 'Done!' or (f.readline() == 'Go ahead' and self.scriptType == 'firmtool')  :
+            line = f.readline()
+            if line == 'Done!' or (line == 'Go ahead' and self.scriptType == 'firmtool')  :
                 return True
             else :
                 if self.scriptType == 'firmtool' :
@@ -73,4 +75,5 @@ class PeaceNegotiator :
             f.write(string)
 
 if __name__ == '__main__' :
-    firm.PeaceNegotiator('firmtool')    
+    firm.PeaceNegotiator('firmtool')
+    print(firm.getLine())
