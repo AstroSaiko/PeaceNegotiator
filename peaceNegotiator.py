@@ -5,7 +5,7 @@ import subprocess
 
 class PeaceNegotiator :
 
-    def __init__(self, scriptType) :
+    def __init__(self, scriptType, rack, crate) :
         if str.lower(scriptType) == "firmtool" :
             self.scriptType = "firmtool"
         elif str.lower(scriptType) == "cratemon" :
@@ -13,7 +13,9 @@ class PeaceNegotiator :
         else :
             self.scriptType = scriptType
         #print self.scriptType
-        self.filepath = '/home/xtaldaq/PeaceNegotiator/.negotiations.txt'
+        self.rack = rack
+        self.crate = crate
+        self.filepath = '/home/xtaldaq/PeaceNegotiator/.negotiations_{0}-{1}.txt'.format(self.rack, self.crate)
 
     def checkFile(self):
         try :
