@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import sys
-import os
 import subprocess
 
 class PeaceNegotiator :
@@ -55,10 +54,10 @@ class PeaceNegotiator :
     def IAmWorking(self):
         if self.scriptType == 'cratemon':
             with open(self.filepath, 'w') as f:
-                f.write('cratemon working...')
+                f.write('Cratemon working...')
         else :
             with open(self.filepath, 'w') as f:
-                f.write('firmtool working...')
+                f.write('Firmtool working...')
 
     def getLine(self):
         self.checkFile()
@@ -72,7 +71,4 @@ class PeaceNegotiator :
             f.write(string)
 
 if __name__ == '__main__' :
-    PeaceNegotiator('test').done()
-    firmNegotiator = PeaceNegotiator('FIRMtool')
-    monNegotiator = PeaceNegotiator('crateMon')
-    print(monNegotiator.requestAccess())
+    firm.PeaceNegotiator('firmtool')    
