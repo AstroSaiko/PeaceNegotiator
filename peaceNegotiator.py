@@ -34,7 +34,7 @@ class PeaceNegotiator :
         self.checkFile()
         with open(self.filepath, 'r') as f:
             line = f.readline()
-            if line == 'Done!' or (line == 'Go ahead' and self.scriptType == 'firmtool')  :
+            if line == 'Done!' or (line == 'Go ahead' and self.scriptType == 'firmtool') :
                 return True
             else :
                 if self.scriptType == 'firmtool' :
@@ -73,6 +73,10 @@ class PeaceNegotiator :
     def writeToFile(self, string):
         with open(self.filepath, 'w') as f:
             f.write(string)
+
+    def giveWay(self):
+        with open(self.filepath, 'w') as f:
+            f.write('Go ahead')
 
 if __name__ == '__main__' :
     firm.PeaceNegotiator('firmtool')
